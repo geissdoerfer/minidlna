@@ -11,9 +11,9 @@ MAINTAINER @bungoume <bungoume@gmail.com>
 
 # Install MiniDLNA(ReadyMedia).
 RUN \
-  apt-get install build-essential libavutil-dev \
+  apt-get install -y build-essential libavutil-dev \
     libavcodec-dev libavformat-dev libjpeg-dev libsqlite3-dev libid3tag0-dev \
-    libogg-dev libvorbis-dev libflac-dev gettext
+    libogg-dev libvorbis-dev libflac-dev libexif-dev gettext
 RUN \
   cd /tmp && \
   wget http://jaist.dl.sourceforge.net/project/minidlna/minidlna/1.1.4/minidlna-1.1.4.tar.gz && \
@@ -22,8 +22,8 @@ RUN \
   ./configure && \
   make && make install
 RUN \
-  cd /tmp/minidlna-1.14 && \
-  cp minidlna.conf /etc/ && \
+  cd /tmp/minidlna-1.1.4 && \
+  cp minidlna.conf /etc/
 
 
 # Define mountable directories.
@@ -33,7 +33,7 @@ VOLUME ["/data"]
 WORKDIR /data
 
 # Define default command.
-#CMD ["sbin"]
+CMD ["/usr/local/sbin/minidlnad","-d"]
 
 # Expose ports.
 #   - 1900: UPnP
