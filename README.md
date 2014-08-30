@@ -1,4 +1,4 @@
-minidlna
+MiniDLNA docker file
 ========
 
 ReadyMedia 
