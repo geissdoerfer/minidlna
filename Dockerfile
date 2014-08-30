@@ -21,9 +21,10 @@ RUN \
   cd minidlna-1.1.4 && \
   ./configure && \
   make && make install
-RUN \
-  cd /tmp/minidlna-1.1.4 && \
-  cp minidlna.conf /etc/
+
+
+# add config file.
+ADD minidlna.conf /etc/minidlna.conf
 
 
 # Define mountable directories.
