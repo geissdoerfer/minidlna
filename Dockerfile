@@ -5,13 +5,13 @@
 #
 
 # Pull base image.
-FROM umeice/python
+FROM armhfbuild/debian:jessie
 
 MAINTAINER @bungoume <bungoume@gmail.com>
 
 # Install MiniDLNA(ReadyMedia).
 RUN \
-  apt-get install -y build-essential libavutil-dev \
+  apt-get update && apt-get install -y build-essential libavutil-dev \
     libavcodec-dev libavformat-dev libjpeg-dev libsqlite3-dev libid3tag0-dev \
     libogg-dev libvorbis-dev libflac-dev libexif-dev gettext
 RUN \
