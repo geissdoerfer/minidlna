@@ -1,0 +1,7 @@
+minidlna:
+  image: minidlna
+  ports:
+    - 8200:8200
+    - 1900:1900
+  volumes:
+    - /var/media:/data
